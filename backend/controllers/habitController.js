@@ -49,7 +49,7 @@ export const updateHabit = async (req, res) => {
   try {
     const habit = await Habit.findOne({
     _id: req.params.id,
-    userId: reg.user._id,
+    userId: req.user._id,
     });
     if (!habit) return res.status(404).json({ message: "Habit not found" });
 
